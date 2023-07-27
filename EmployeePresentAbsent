@@ -1,0 +1,17 @@
+// Constant to represent the absence of an employee (0 means absent)
+const IS_ABSENT = 0;
+
+// Generate a random number between 0 and 9 (inclusive),
+// then calculate the remainder when divided by 2.
+// The result will either be 0 or 1 (0 for absent, 1 for present).
+let empCheck = Math.floor(Math.random() * 10) % 2;
+
+// Check if the randomly generated empCheck is equal to IS_ABSENT (0).
+// If the employee is absent, print a message and stop further execution.
+if (empCheck == IS_ABSENT) {
+    console.log("Employee is absent");
+    return;
+} else {
+    // If the employee is present (empCheck is 1), print a message indicating presence.
+    console.log("Employee is present");
+}
