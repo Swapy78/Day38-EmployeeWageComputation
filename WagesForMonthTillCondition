@@ -1,0 +1,52 @@
+// Constants representing the employment types and their respective working hours and wage per hour.
+const IS_PART_TIME = 1;
+const IS_FULL_TIME = 2;
+const PART_TIME_HOURS = 4;
+const FULL_TIME_HOURS = 8;
+const WAGE_PER_HOUR = 20;
+const MAX_WORKING_DAYS = 20;
+const MAX_WORKING_HOURS = 160;
+
+// Function to get the working hours based on the employment type.
+function getWorkingHours(empCheck) {
+    switch (empCheck) {
+        case IS_PART_TIME:
+            // If the employee is part-time, return the corresponding working hours.
+            return PART_TIME_HOURS;
+        case IS_FULL_TIME:
+            // If the employee is full-time, return the corresponding working hours.
+            return FULL_TIME_HOURS;
+        default:
+            // For any other value of empCheck (0 or unexpected values), assume the employee is not present and return 0.
+            return 0;
+    }
+}
+
+// Initialize variables to hold the total employee working hours and the number of working days.
+let totalEmpHours = 0;
+let totalWorkingDays = 0;
+
+// Loop to simulate employee working until either the maximum working hours or the maximum working days is reached.
+while (totalEmpHours < MAX_WORKING_HOURS && totalWorkingDays < MAX_WORKING_DAYS) {
+    // Generate a random number between 0 and 9 (inclusive),
+    // then calculate the remainder when divided by 3.
+    // The result will be 0, 1, or 2, representing the employment type for the current day.
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+
+    // Call the getWorkingHours function with the randomly generated empCheck to determine the working hours for the current day.
+    let empHours = getWorkingHours(empCheck);
+
+    // Add the obtained working hours to the total employee working hours.
+    totalEmpHours += empHours;
+
+    // Increment the number of working days by 1.
+    totalWorkingDays++;
+}
+
+// Calculate the total employee wage by multiplying the total working hours with the wage per hour.
+let totalEmpWage = totalEmpHours * WAGE_PER_HOUR;
+
+// Print the total working hours, the number of working days, and the corresponding total employee wage to the console.
+console.log("Total Working Hours: " + totalEmpHours);
+console.log("Total Working Days: " + totalWorkingDays);
+console.log("Total Employee Wage: " + totalEmpWage);

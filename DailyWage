@@ -1,0 +1,35 @@
+// Constants representing the employment types and their respective working hours and wage per hour.
+const IS_PART_TIME = 1;
+const IS_FULL_TIME = 2;
+const PART_TIME_HOURS = 4;
+const FULL_TIME_HOURS = 8;
+const WAGE_PER_HOUR = 20;
+
+// Initialize the variable to hold the employee's working hours.
+let empHours = 0;
+
+// Generate a random number between 0 and 9 (inclusive),
+// then calculate the remainder when divided by 3.
+// The result will be 0, 1, or 2, representing the employment type.
+empCheck = Math.floor(Math.random() * 10) % 3;
+
+// Use a switch statement to determine the working hours based on the employment type.
+switch (empCheck) {
+    case IS_PART_TIME:
+        // If the employee is part-time, assign the corresponding working hours.
+        empHours = PART_TIME_HOURS;
+        break;
+    case IS_FULL_TIME:
+        // If the employee is full-time, assign the corresponding working hours.
+        empHours = FULL_TIME_HOURS;
+        break;
+    default:
+        // For any other value of empCheck (0 or unexpected values), assume the employee is not present.
+        empHours = 0;
+}
+
+// Calculate the employee's wage by multiplying the working hours with the wage per hour.
+let empWage = empHours * WAGE_PER_HOUR;
+
+// Print the calculated wage to the console.
+console.log("Employee wage is " + empWage);
